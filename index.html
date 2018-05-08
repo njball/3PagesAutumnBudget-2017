@@ -92,7 +92,7 @@
 	//	console.log(d.Measure + ". Impact" + d.Impact);
 	//});
 
-	//Define the squares
+	//Define the squares - Only used to test code before connecting to csv
    varSquareData2 = [{ "Measure": "Hello, this is where text A will go", "Impact": 20},
        { "Measure": "Hello, this is where text B will go", "Impact": 30},
        { "Measure": "Hello, this is where text C will go", "Impact": 10},
@@ -182,7 +182,7 @@ console.log("LargestSqLength is " + largestSqLength);
      	var tempLineCount; //This will be used to offset text later
 	var arrLineCount = Array(varSquareData.length).fill(1);
 	
-	//Define a function to wrap text
+	//Define a function to wrap text - code adapted from Mike Bostock's 'Wrapping Long Labels' bl.ock https://bl.ocks.org/mbostock/7555321
       function wrap(text, width) { //Text here is actually an array of (text?) items
 	//For each item - execute the following function
       	var j = 0;
