@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html>
- <head>
-  <meta charset="utf-8"> 
-  <title>My Squares on Grid - Footnote Actioned</title> 
-  <!--Specify where to find the d3.js JavaScript file - in the parent folder of the one where this file is stored -->
-  <script type="text/javascript" src="https://d3js.org/d3.v4.js"></script>
- </head>
- <body>
-  <script type="text/javascript">
-   //Set title for piece
+  //Must delete <script type="text/javascript"> when used in external file
+ //Set title for piece
    var visTitle = "UK Budget 2017:";
    var visDescr1_1 = "The Uk budget was announced on 22nd November 2017. Some measures will result in an ";
    var visDescr1_2 = "increase in revenue";
@@ -18,11 +9,12 @@
    var visDescr2 = "How do these compare across the whole budget?";
    var visDataNotes_1 = "Stacked bar charts are a more conventional way of displaying such data, but are difficult to interpret when category headings are very long. This chart design was 100% inspired by one published by the NYTimes."
    var visDataNotes_2 = "https://www.nytimes.com/interactive/2017/11/15/us/politics/every-tax-cut-in-the-house-tax-bill.html. Data source: https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/661480/autumn_budget_2017_web.pdf ";
-   var visDataNotes_3 = "The area of each square represents the total expected impact of the measure over the period FY2017-18 to FY2022-23.";
    
 //Create the svg container for title
-   var svgTitleHeight = 50, svgTitleWidth = 1250;
-   var svgTitleContainer = d3.select("body").append("svg")
+   var divWidth = document.getElementById("d3-graph-1").clientWidth;
+   console.log(divWidth);
+   var svgTitleHeight = 50, svgTitleWidth = divWidth; //1250;
+   var svgTitleContainer = d3.select("#d3-graph-1").append("svg") //Changed body to div - if this doesn't work, try
         .attr("height", svgTitleHeight)
         .attr("width", svgTitleWidth);
    var ourTitle = svgTitleContainer
@@ -124,8 +116,8 @@
    function RowPosition (i) { return (i % numRows) + 1;};
    function ColumnPosition (i) { return Math.floor( i / numRows) + 1; };
    //Create the svg container for vis
-   var svgHeight = 685, svgWidth = 1250;
-   var svgContainer = d3.select("body").append("svg")
+   var svgHeight = 300, svgWidth = divWidth; //1250; and 685 for height
+   var svgContainer = d3.select("#d3-graph-1").append("svg")
         .attr("height", svgHeight)
         .attr("width", svgWidth);
    //Set margins for use inside the svg container
@@ -279,8 +271,8 @@ console.log("LargestSqLength is " + largestSqLength);
    
    //Add data notes
    //Create the svg container for data notes
-   var svgNotesHeight = 50, svgNotesWidth = 1250;
-   var svgNotesContainer = d3.select("body").append("svg")
+   var svgNotesHeight = 50, svgNotesWidth = divWidth; //1250;
+   var svgNotesContainer = d3.select("#d3-graph-1").append("svg")
         .attr("height", svgNotesHeight)
         .attr("width", svgNotesWidth);
 
@@ -289,34 +281,22 @@ console.log("LargestSqLength is " + largestSqLength);
        .attr("font-family", "sans-serif") 
        .attr("font-size", "12px") 
        .attr("fill", "grey")
-       .attr("y", svgNotesHeight-40 )
+       .attr("y", svgNotesHeight/2 )
        .attr("text-anchor", "right")
-       .text(visDataNotes_3) ;
+       .text(visDataNotes_1) ;
 
    var ourNotesText_2 = svgNotesContainer
 	.append("text")
        .attr("font-family", "sans-serif") 
        .attr("font-size", "12px") 
        .attr("fill", "grey")
-       .attr("y", svgNotesHeight - 20 )
+       .attr("y", svgNotesHeight - 10 )
        .attr("text-anchor", "right")
-       .text(visDataNotes_1) ;
-
-     var ourNotesText_3 = svgNotesContainer
-	.append("text")
-       .attr("font-family", "sans-serif") 
-       .attr("font-size", "12px") 
-       .attr("fill", "grey")
-       .attr("y", svgNotesHeight - 5 )
-       .attr("text-anchor", "right")
-       .text(visDataNotes_2) ;   
+       .text(visDataNotes_2) ;
        
       
 
 //Close the d3.csv bit
 }
 );
-
-  </script>
- </body>
-</html>
+// Must delete </script> when used in external js file

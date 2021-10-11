@@ -1,0 +1,105 @@
+html, body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+
+  margin: 0;
+}
+
+/*HEADER STYLES*/
+.header-row {
+  color: #166395; /*blue font*/
+}
+
+.header-row div {
+  display: inline-block;
+  width: 33%;
+  text-align: center;
+}
+
+.header-row a {
+  text-decoration: none;
+  color: #166395; /*blue font requires repeating to over-ride link auto font colour*/
+}
+
+.page-title {
+  text-align: center;
+  font-weight: 100;
+}
+
+.nav-links {
+  list-style: none;
+}
+
+.nav-links li {
+  display: inline-block;
+  width: 80px;
+}
+
+/*Put a box around the page in the nav links that we're currently on*/
+.selected-page {
+  font-style: bold;
+  padding: 8px 18px;
+  border: 1px solid #204156;
+}
+
+.page-description {
+  border: 1px solid #000;
+  text-align: center;
+  padding: 30px;
+}
+
+/*GALLERY STYLE FOR PORTFOLIO PAGE*/
+.gallery {
+  display: flex; /*Children of this element will align horizontally*/
+  flex-wrap: wrap; /*Children of this element will wrap rather than overspilling*/
+  justify-content: center;
+  /*margin-top: 20px;*/
+  background-image: url('../img/Wooden-desk.jpg');
+  background-position: center top;
+  background-size: contain;
+}
+
+.gallery-item {
+  margin: 20px;
+  border: 5px solid #fff;
+  line-height: 0;
+}
+
+.gallery-item .thumbnail {
+  /*width: : 320px;
+  height: : 214px;*/
+}
+
+/*LAYOUT STYLES FOR LEFT AND RIGHT SPLIT PAGES*/
+.container {
+  display: grid;
+}
+
+.left-half {
+  background: #fffff0;
+  grid-column: 1;
+}
+
+.right-half {
+  background: #b6701e;
+  grid-column: 2;
+}
+
+/* FOOTER NAVIGATION */
+
+nav {
+  background-color: #FFF;
+  text-align: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: #166395; /*blue font*/
+}
